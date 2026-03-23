@@ -1,4 +1,16 @@
 export const createDOM = (element) => {
+	if (element == null || typeof element === "boolean") {
+		return document.createTextNode("");
+	}
+
+	if (Array.isArray(element)) {
+		const fragment = document.createDocumentFragment();
+		element.flat(Infinity).forEach((child) => {
+			fragment.appendChild(createDOM(child));
+		});
+		return fragment;
+	}
+
 	if (typeof element === "string" || typeof element === "number") {
 		return document.createTextNode(element);
 	}
