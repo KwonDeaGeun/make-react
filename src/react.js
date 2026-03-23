@@ -1,3 +1,5 @@
+import { createDOM } from "./createDOM";
+
 const React = {
 	createElement(type, props, ...children) {
 		if (typeof type === "function") {
@@ -10,6 +12,10 @@ const React = {
 				children,
 			},
 		};
+	},
+	render(content, container) {
+		const element = createDOM(content);
+		container.appendChild(element);
 	},
 };
 

@@ -16,4 +16,7 @@ export const Header = () => {
 	return <header>헤더</header>;
 };
 
+const app = document.getElementById("app");
+React.render(App(), app);
+
 console.log(App());
