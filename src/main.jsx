@@ -16,7 +16,15 @@ export const Header = () => {
 	return <header>헤더</header>;
 };
 
+export const Change = () => {
+	return <h1>내용 변경</h1>;
+};
+
 const app = document.getElementById("app");
 React.render(App(), app);
+setTimeout(() => {
+	app.innerHTML = "";
+	React.render(Change(), app);
+}, 2000);
 
 console.log(App());
